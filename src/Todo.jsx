@@ -8,18 +8,23 @@ function Todo() {
     const [dod,getDod] = useState('')
     const [count,setCount] = useState(0)
 
+
+   
     useEffect(()=> {
 
-        const raw = localStorage.getItem('todo')||[]
+        const raw = localStorage.getItem('todo')
+        if (!null)
+        {
         Settodo(JSON.parse(raw))
-
+        }
     },[])
 
     useEffect(()=> {
-            localStorage.setItem('todo',JSON.stringify(todo))
-        },[todo]
-    )
+        localStorage.setItem('todo',JSON.stringify(todo))
+    },[todo]
+)
 
+   
     console.log(todo)
 
     let addTodo = event => {
